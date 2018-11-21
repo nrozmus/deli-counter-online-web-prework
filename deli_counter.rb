@@ -1,24 +1,30 @@
-function takeANumber(katzDeliLine, name) {
-  katzDeliLine.push(name)
-  var numLine = katzDeliLine.indexOf(name)
-  var welcomeMessage = `Welcome, ${name}. You are number ${numLine + 1} in line.`
-  return welcomeMessage
- }
- function nowServing(katzDeliLine) {
-  if (katzDeliLine.length != 0) {
-    var firstPerson = katzDeliLine.slice(0,1)
-    katzDeliLine.shift()
-    return `Currently serving ${firstPerson}.`
-  } else {
-    return "There is nobody waiting to be served!"
-  }
-}
-//
-takeANumber(3,"john")
- function currentLine(currentPosition) {
-  if (currentPosition.length > 0) {
-    return `The line is currently: 1. ${currentPosition[0]}, 2. ${currentPosition[1]}, 3. ${currentPosition[2]}`
-  } else {
-    return 'The line is currently empty.'
-  }
-}
+# Write your code here.
+def take_a_number(katz_deli, name)
+  katz_deli << name
+  puts "Welcome, #{name}. You are number #{katz_deli.length} in line."
+end
+
+def now_serving(katz_deli)
+  if katz_deli.length == 0
+    puts "There is nobody waiting to be served!"
+  else
+    puts "Currently serving #{katz_deli.shift}."
+  end
+
+end
+
+def line(katz_deli)
+  if katz_deli.length == 0
+    puts "The line is currently empty."
+  else
+    message="The line is currently:"
+
+    katz_deli.each_with_index do |value, index|
+      message += " #{index.to_i+1}. #{value}"
+    end
+
+    puts "#{message}"
+  end
+
+
+end
